@@ -89,8 +89,8 @@ const net = require("net");
          readable: true
      });
  
-     connection.setTimeout(options.timeout * 10000);
-     connection.setKeepAlive(true, 10000);
+     connection.setTimeout(options.timeout * 100000);
+     connection.setKeepAlive(true, 100000);
      connection.setNoDelay(true)
  
      connection.on("connect", () => {
@@ -175,7 +175,7 @@ const net = require("net");
      Socker.HTTP(proxyOptions, (connection, error) => {
          if (error) return
  
-         connection.setKeepAlive(true, 60000);
+         connection.setKeepAlive(true, 600000);
          connection.setNoDelay(true)
  
          const settings = {
@@ -256,7 +256,7 @@ const net = require("net");
  
  const KillScript = () => process.exit(1);
  
- setTimeout(KillScript, args.time * 1000);
+ setTimeout(KillScript, args.time * 10000);
  
  process.on('uncaughtException', error => {});
  process.on('unhandledRejection', error => {});
